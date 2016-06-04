@@ -1,0 +1,12 @@
+---
+layout: post
+title: Kormoran
+date: '2015-09-19 12:00:30'
+tags:
+- jolla
+- twitter
+- sailfishos
+- kormoran
+---
+
+More to come soon!
