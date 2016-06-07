@@ -19,5 +19,7 @@ twitter_username: hwesselmann
 github_username:  hwesselmann
 gitlab_username: hwesselmann
 
+permalink: /:title/
+
 # Build settings
 markdown: kramdown

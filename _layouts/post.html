@@ -18,31 +18,30 @@
 
   <script src="https://use.fontawesome.com/71afee61e5.js"></script>
 
-  <link rel="canonical" href="http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" />
+  <link rel="canonical" href="{{ site.url }}/{{ page.url }}" />
   <meta name="referrer" content="origin" />
 
-  <meta property="og:site_name" content="haukes blog" />
+  <meta property="og:site_name" content="{{ site.title }}" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Abenteuer in SAFe - Sei der Product Manager!" />
+  <meta property="og:title" content="{{ page.title }}" />
   <meta property="og:description" content="&quot;Herzlichen Glückwunsch! Du bist jetzt Product Manager!  Ach ja, wir setzen hier das Scaled Agile Framework (SAFe) ein, Product Manager ist da ein bisschen anders als Du es vielleicht im klassischen Sinn kennst. Macht ja nix, geh mal auf scaledagile...." />
-  <meta property="og:url" content="http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" />
+  <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
   <meta property="article:published_time" content="2015-10-22T21:44:00.000Z" />
   <meta property="article:modified_time" content="2015-10-22T21:45:25.194Z" />
-  <meta property="article:tag" content="SAFe" />
-  <meta property="article:tag" content="Product Manager" />
-  <meta property="article:tag" content="agile" />
-  <meta property="article:tag" content="scrum" />
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}" />
+  {% endfor %}
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Abenteuer in SAFe - Sei der Product Manager!" />
+  <meta name="twitter:title" content="{{ page.title }}" />
   <meta name="twitter:description" content="&quot;Herzlichen Glückwunsch! Du bist jetzt Product Manager!  Ach ja, wir setzen hier das Scaled Agile Framework (SAFe) ein, Product Manager ist da ein bisschen anders als Du es vielleicht im klassischen Sinn kennst. Macht ja nix, geh mal auf scaledagile...." />
-  <meta name="twitter:url" content="http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" />
+  <meta name="twitter:url" content="{{ site.url }}/{{ page.url }}" />
 
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Article",
-      "publisher": "haukes blog",
+      "publisher": "{{ site.title }}",
       "author": {
         "@type": "Person",
         "name": "Hauke",
@@ -51,15 +50,15 @@
         "sameAs": "http://www.h-dawg.de",
         "description": null
       },
-      "headline": "Abenteuer in SAFe - Sei der Product Manager!",
-      "url": "http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/",
+      "headline": "{{ page.title }}",
+      "url": "{{ site.url }}/{{ page.url }}",
       "datePublished": "2015-10-22T21:44:00.000Z",
       "dateModified": "2015-10-22T21:45:25.194Z",
-      "keywords": "SAFe, Product Manager, agile, scrum",
+      "keywords": "{{ page.tags | array_to_sentence_string }}",
       "description": "&quot;Herzlichen Glückwunsch! Du bist jetzt Product Manager!  Ach ja, wir setzen hier das Scaled Agile Framework (SAFe) ein, Product Manager ist da ein bisschen anders als Du es vielleicht im klassischen Sinn kennst. Macht ja nix, geh mal auf scaledagile...."
     }
   </script>
-  <link rel="alternate" type="application/rss+xml" title="haukes blog" href="http://www.h-dawg.de/rss/" />
+  <link rel="alternate" type="application/rss+xml" title="haukes blog" href="{{ site.url }}/feed.xml" />
 </head>
 
 <body>
@@ -67,55 +66,64 @@
 
   <header class="main-header post-head no-cover">
     <nav class="main-nav  clearfix">
-      <a class="back-button" href="http://www.h-dawg.de"><i class="fa fa-chevron-left"></i>&nbsp;Home</a>
+      <a class="back-button" href="{{ site.url }}"><i class="fa fa-chevron-left"></i>&nbsp;Home</a>
       <a class="subscribe-button" href="{{ site.url }}/feed.xml"><i class="fa fa-rss"></i>&nbsp;Abonnieren</a>
     </nav>
   </header>
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <main class="content" role="main">
 
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-      <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-    </header>
+    <article class="post">
 
-    <div class="post-content" itemprop="articleBody">
-      {{ content }}
-    </div>
-
-    <footer class="post-footer">
-
-      <figure class="author-image">
-        <a class="img" href="/author/hauke/" style="background-image: url(//www.gravatar.com/avatar/ce15da66a37ccd143de83061f68f90c1?d=404&amp;s=250)"><span class="hidden">Hauke's Picture</span></a>
-      </figure>
-
-      <section class="author">
-        <h4><a href="/author/hauke/">Hauke</a></h4>
-        <p><a href="/author/hauke/">mehr artikel dieses autors</a>.</p>
-        <div class="author-meta">
-          <span class="author-location"><i class="fa fa-map-marker"></i>&nbsp;Dorsten, Germany</span>
-          <span class="author-link"><a href="http://www.h-dawg.de"><i class="fa fa-external-link"></i>&nbsp;http://www.h-dawg.de</a></span>
-        </div>
+      <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <section class="post-meta">
+          <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time> in
+          {% for tag in page.tags %}
+          <a href="/tag/{{ tag }}/">{{ tag }}</a>{% if tag != page.tags.last %}, {% endif %}
+          {% endfor %}
+        </section>
+      </header>
+      <br>
+      <section class="post-content">
+        {{ content }}
       </section>
 
-      <section class="share">
-        <h4>Teilen</h4>
-        <a href="https://twitter.com/share?text=Abenteuer%20in%20SAFe%20-%20Sei%20der%20Product%20Manager!&amp;url=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-          <i class="fa fa-twitter fa-lg"></i><span class="hidden">Twitter</span>
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-          <i class="fa fa-facebook-official fa-lg"></i><span class="hidden">Facebook</span>
-        </a>
-        <a href="https://plus.google.com/share?url=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-          <i class="fa fa-google-plus-square fa-lg"></i><span class="hidden">Google+</span>
-        </a>
-      </section>
+      <footer class="post-footer">
 
-    </footer>
+        <figure class="author-image">
+          <a class="img" href="/author/hauke/" style="background-image: url(//www.gravatar.com/avatar/ce15da66a37ccd143de83061f68f90c1?d=404&amp;s=250)"><span class="hidden">Hauke's Picture</span></a>
+        </figure>
 
-    {% include disqus.html %}
+        <section class="author">
+          <h4><a href="/author/hauke/">Hauke</a></h4>
+          <p><a href="/author/hauke/">mehr artikel dieses autors</a>.</p>
+          <div class="author-meta">
+            <span class="author-location"><i class="fa fa-map-marker"></i>&nbsp;Dorsten, Germany</span>
+            <span class="author-link"><a href="http://www.h-dawg.de"><i class="fa fa-external-link"></i>&nbsp;http://www.h-dawg.de</a></span>
+          </div>
+        </section>
 
-  </article>
+        <section class="share">
+          <h4>Teilen</h4>
+          <a href="https://twitter.com/share?text=Abenteuer%20in%20SAFe%20-%20Sei%20der%20Product%20Manager!&amp;url=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter fa-lg"></i><span class="hidden">Twitter</span>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook-official fa-lg"></i><span class="hidden">Facebook</span>
+          </a>
+          <a href="https://plus.google.com/share?url=http://www.h-dawg.de/abenteuer-in-safe-du-bist-der-product-manager/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+            <i class="fa fa-google-plus-square fa-lg"></i><span class="hidden">Google+</span>
+          </a>
+        </section>
+
+      </footer>
+
+      {% include disqus.html %}
+
+    </article>
+
+  </main>
 
   {% include footer.html %}
 
