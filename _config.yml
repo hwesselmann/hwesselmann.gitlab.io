@@ -11,7 +11,7 @@ tagline: ...nur ein bisschen wirres zeug...
 email: hauke@h-dawg.de
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://hwesselmann.gitlab.io" # the base hostname & protocol for your site
+url: "http://www.h-dawg.de" # the base hostname & protocol for your site
 twitter_username: hwesselmann
 github_username:  hwesselmann
 gitlab_username: hwesselmann
