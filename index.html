@@ -30,7 +30,7 @@ layout: default
           {% for tag in post.tags %}
           <a href="/tag/{{ tag }}/">{{ tag }}</a>{% if tag != page.tags.last %}, {% endif %}
           {% endfor %}
-      <time class="post-date" datetime="2015-10-22">22 October 2015</time>
+      <time class="post-date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%d.%B %Y"  }}</time>
     </footer>
   </article>
   {% endfor %}
