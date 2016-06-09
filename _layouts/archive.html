@@ -67,8 +67,10 @@
         </section>
         <footer class="post-meta">
           <img class="author-thumb" src="//www.gravatar.com/avatar/ce15da66a37ccd143de83061f68f90c1?d=404&amp;s=250" alt="Author image" nopin="nopin" />
-          <a href="/author/hauke/">Hauke</a>
-          in <a href="/tag/agile/">agile</a>, <a href="/tag/scrum/">scrum</a>, <a href="/tag/project-management/">project management</a>, <a href="/tag/scrummaster/">scrummaster</a>
+          <a href="/author/hauke/">Hauke</a> in
+          {% for tag in post.tags %}
+          <a href="/tag/{{ tag }}/">{{ tag }}</a>{% if tag != page.tags.last %}, {% endif %}
+          {% endfor %}
           <time class="post-date" datetime="2015-02-09">09 February 2015</time>
         </footer>
       </article>
