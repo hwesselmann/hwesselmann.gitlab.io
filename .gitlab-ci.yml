@@ -3,7 +3,8 @@ image: ruby:2.3                 # the script will run in Ruby 2.1 using the Dock
 pages:                          # the build job must be named pages
   script:
   - gem install jekyll          # we install jekyll
-  - gem install jekyll-paginate # we install jekyll-paginate
+  - gem install jekyll-paginate # we install jekyll-paginate plugin
+  - gem install jekyll-archives # we install jekyll-archives plugin
   - jekyll build -d public/     # we tell jekyll to build the site for us
   artifacts:
     paths:

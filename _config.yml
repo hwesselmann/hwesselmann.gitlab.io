@@ -22,8 +22,15 @@ permalink: /:title/
 markdown: kramdown
 
 # Plugins
-gems: ["jekyll-paginate"]
+gems: ["jekyll-paginate", "jekyll-archives"]
 
 # Pagination
 paginate: 5
 paginate_path: "page/:num/"
+
+# Jekyll Archives
+jekyll-archives:
+  enabled: ["tags"]
+  layout: archive
+  permalinks:
+    tag: /tag/:name/
